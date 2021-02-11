@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const Users = require("./RegisterUserModel");
+const connectionToDB = require("../DBConnector/ConnectionHandler");
 const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
 
 //DajanTr2IO2nkJiY;
 
 router.post("/addUser", async (req, res) => {
+   connectionToDB.establishConnection();
+
    console.log("HELLO TO ENDPOINT");
    const user = new Users({
       name: req.body.name,
@@ -19,6 +21,8 @@ router.post("/addUser", async (req, res) => {
    } catch (err) {
       console.log(err);
       res.status(400).send(err);
+   } finally {
+      connectionToDB.closeConnection();
    }
 });
 

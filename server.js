@@ -4,15 +4,11 @@ const cors = require("cors");
 const registerRoute = require("./Components/Users/RegisterRoute");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const MongoClient = require("mongodb").MongoClient;
+//const MongoClient = require("mongodb").MongoClient;
 
 dotenv.config();
 //const <route name> = require("route path")
 
-mongoose.connect(process.env.DB_CONNECTION_STRING, {
-   useUnifiedTopology: true,
-   useNewUrlParser: true,
-});
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
