@@ -13,6 +13,7 @@ router.post("/addUser", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
+      address: req.body.address,
    });
    try {
       const savedUser = await user.save();
