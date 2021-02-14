@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const userRegisterSchema = new mongoose.Schema({
    name: {
       type: String,
       required: true,
@@ -25,5 +25,9 @@ const userSchema = new mongoose.Schema({
       min: 10,
       max: 255,
    },
+   isAdmin: {
+      type: Boolean,
+      required: true,
+   },
 });
-module.exports = mongoose.model("Users", userSchema);
+module.exports = mongoose.model("Users", userRegisterSchema);
