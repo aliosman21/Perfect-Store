@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 9 0%;
+}
+.nav {
+  list-style: none;
+}
+.navbar {
+  width: 100%;
+}
+.navbar .nav {
+  display: grid;
+  grid-template-columns: 20% 50% 10% 20%;
+  padding: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.logo {
+  color: black;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+.logo span {
+  color: #0171df;
+  font-weight: 700;
+}
+
+.search-container input {
+  width: 80%;
+  height: 34px;
+  background: #f7f7f7;
+
+  outline: none;
+  text-indent: 10px;
+  border: #aaa 1px solid;
+  border-radius: 10px;
+}
+.search-container input::placeholder {
+  color: #aaa;
+}
+
+.search-btn {
+  width: 40px;
+  height: 34px;
+  outline: none;
+  background: #f7f7f7;
+  border: #aaa 1px solid;
+  border-radius: 20%;
+  cursor: pointer;
+}
+
+.nav-element.icons i {
+  font-size: 30px;
+  color: black;
+}
+
+.nav-element.icons a {
+  display: flex;
+  color: black;
+}
+.nav-element.icons a:hover {
+  color: #7f218b;
+}
+
+.nav-element.icons {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.categories-nav {
+  display: flex;
+  background-color: #0171df;
+  justify-content: space-around;
+  text-align: center;
+  overflow: hidden;
+  z-index: 20;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.categories-nav .categories-items {
+  list-style: none;
+  display: flex;
+}
+
+.categories-nav .categories-items .categories-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.categories-nav .categories-items .categories-item a,
+.categories-nav .categories-items .categories-item svg {
+  color: white;
+  font-size: 20px;
+  margin: 0 5px;
+}
