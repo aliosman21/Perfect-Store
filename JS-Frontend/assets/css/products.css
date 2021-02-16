@@ -1,0 +1,127 @@
+.product-container {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    margin:auto;
+    flex-wrap: wrap;
+}
+
+.product-title {
+    text-align: start;
+    margin: 20px 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(49, 47, 47);
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    border-radius: 20px;
+    box-shadow: 10px 12px 25px rgba(104, 104, 104, 0.267);
+    margin: 15px;
+}
+
+.product-container img {
+    width: 100%;
+    background-color: #d8d8d896;
+    padding: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.product-controls {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.product-btns {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.product-btns button {
+    width: 40%;
+    height: 70%;
+    border: none;
+    margin: 10px 10px;
+    outline: none;  
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3183d6b7;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 10px;
+    transition: 0.5s;
+}
+
+.product-btns button:hover {
+    background-color: #083c70b7;
+    transform: scale(1.05);
+}
+
+.product-controls h4,
+.product-controls h5 {
+    text-align: center;
+    margin: 0 15px;
+}
+
+.product-controls h4 {
+    color: rgb(49, 47, 47);
+    font-weight: 500;
+}
+
+.product-controls h5 {
+    font-size: 1.2rem;
+    color: rgba(0, 15, 44, 0.822);
+}
+
+@media (max-width: 1200px) {
+    .product-card {
+        width: 30%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .product-card {
+        width: 45%;
+    }
+
+    .product-btns{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .product-btns button {
+        width: 80%;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 770px) {
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+    }
+    .product-card {
+        width: 80%;
+    }
+}
+
+
+
