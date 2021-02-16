@@ -9,11 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bootstrap-icons": "^1.3.0",
-=======
     "bcryptjs": "^2.4.3",
->>>>>>> a4da557dae56d9256bb59bbdba5f6fadfba100c8
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

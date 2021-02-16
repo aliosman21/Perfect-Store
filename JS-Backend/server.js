@@ -4,11 +4,8 @@ const cors = require("cors");
 const registerRoute = require("./Components/Users/RegisterRoute");
 const loginRoute = require("./Components/Users/LoginRoute");
 const dotenv = require("dotenv");
-<<<<<<< HEAD
 const mongoose = require("mongoose");
 const path = require("path");
-=======
->>>>>>> a4da557dae56d9256bb59bbdba5f6fadfba100c8
 //const MongoClient = require("mongodb").MongoClient;
 
 dotenv.config();
