@@ -24,4 +24,7 @@ app.use("/User/login", loginRoute);
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../JS-Frontend/index.html"));
 });
+app.get("/products", (req, res) => {
+  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/products.html"));
+});
 app.listen(port, () => console.log("Server is up on port " + port));
