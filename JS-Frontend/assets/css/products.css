@@ -18,17 +18,18 @@
     display: flex;
     flex-direction: column;
     width: 22%;
-    border-radius: 20px;
+    border: 1px solid black;
+    /* border-radius: 20px; */
     box-shadow: 10px 12px 25px rgba(104, 104, 104, 0.267);
-    margin: 15px;
+    /* margin: 15px; */
 }
 
 .product-container img {
     width: 100%;
     background-color: #d8d8d896;
     padding: 30px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    /* border-top-left-radius: 20px;
+    border-top-right-radius: 20px; */
 }
 
 .product-controls {
@@ -46,19 +47,23 @@
 
 .product-btns {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
 }
 
 .product-btns button {
-    width: 40%;
+    width: 90%;
     height: 70%;
     border: none;
     margin: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     outline: none;  
     border-radius: 5px;
-    cursor: pointer;
-    background-color: #3183d6b7;
+    cursor: pointer;    
+    font-size: 14px;
+    background-color: #2d8b07bb;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     font-weight: 600;
@@ -66,8 +71,51 @@
     transition: 0.5s;
 }
 
-.product-btns button:hover {
-    background-color: #083c70b7;
+.btn-card svg {
+    margin-right: 15px;
+}
+
+.btn-view {
+    position: absolute;
+    opacity: 0;
+    width: 100px;
+    height: 40px;
+    border: none;
+    margin: 10px 10px;
+    outline: none;  
+    border-radius: 5px;
+    cursor: pointer;    
+    font-size: 14px;
+    background-color: #2c8b07;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 10px;
+    transition: 0.3s;
+    z-index: 9;
+}
+
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-container img {
+    transition: 0.4s;
+}
+
+.img-container:hover img {
+    opacity: 0.3;
+}
+
+.img-container:hover .btn-view {
+    opacity: 1;
+}
+
+.product-btns button:hover,
+.btn-view:hover {
+    background-color: #207000f1;
     transform: scale(1.05);
 }
 
@@ -87,6 +135,29 @@
     color: rgba(0, 15, 44, 0.822);
 }
 
+.pages-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-btn {
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 4px 12px;
+    margin: 20px 5px;
+    color: black;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.page-btn.active,
+.page-btn:hover {
+    background-color: #2d8b07bb;
+    color: white;
+}
+
 @media (max-width: 1200px) {
     .product-card {
         width: 30%;
@@ -96,6 +167,10 @@
 @media (max-width: 1000px) {
     .product-card {
         width: 45%;
+    }
+
+    .btn-view {
+        width: 150px;
     }
 
     .product-btns{
@@ -120,6 +195,10 @@
     }
     .product-card {
         width: 80%;
+    }
+
+    .btn-view {
+        width: 180px;
     }
 }
 
