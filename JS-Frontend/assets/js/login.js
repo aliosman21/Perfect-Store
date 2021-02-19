@@ -25,7 +25,6 @@ signUp.addEventListener("click", (e) => {
 async function login() {
   let response = await fetch("http://localhost:5000/User/login/authenticateLogin", {
     method: "POST",
-    
     body: JSON.stringify({
       username: document.querySelector("#sign-in-username").value,
       password: document.querySelector("#sign-in-password").value
@@ -34,7 +33,6 @@ async function login() {
 
   let jsonRes = await response.json();
 
-  console.log(jsonRes);
   if (jsonRes["success"] == false) {
     let errorEl = document.querySelector("#error-message");
     errorEl.innerText = jsonRes["message"];
@@ -53,11 +51,6 @@ async function signup() {
   });
 
   let jsonRes = await response.json();
-
-  if(jsonRes["statusType"] === "Confirmation") {
-    console.log("Successssssssssssssssssssss");
-  }
-
 
   if (jsonRes["success"] == false) {
     let errorEl = document.querySelector("#error-message");

@@ -25,7 +25,7 @@ app.use("/uploads", express.static("uploads"));
 //app.use("/", (req, res) => {});
 app.get("/", (req, res) => {
   res.render("index.ejs", {
-    loggedIn: false,
+    loggedIn: true,
     username: "Omar"
   });
 });

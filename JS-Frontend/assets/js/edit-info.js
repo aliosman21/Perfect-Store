@@ -10,7 +10,7 @@ async function updateInfo() {
     const response = await fetch("/updateroute", {
         method: "PATCH",
         body: JSON.stringify({
-            name: document.querySelector("#name").nodeValue,
+            name: document.querySelector("#name").value,
             email: document.querySelector("#email").value,
             address: document.querySelector("#address").value,
             password: document.querySelector("#password").value
