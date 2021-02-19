@@ -29,6 +29,12 @@ main {
     margin-bottom: 20px;
 }
 
+.info-container h2 {
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: rgba(255, 0, 0, 0.658);
+}
+
 .row label {
     font-size: 1.2rem;
     margin: 10px;
@@ -65,7 +71,7 @@ main {
     border: 1px solid #ccc;
     box-sizing: border-box;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
   }
   
   .form-btn:hover {
@@ -96,6 +102,8 @@ main {
 
     .row label {
         margin-bottom: 5px;
+        width: 90%;
+        text-align: start;
     }
 
     .row input {

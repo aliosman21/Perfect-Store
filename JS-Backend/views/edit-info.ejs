@@ -119,6 +119,7 @@
     <main>
       <form class="info-container">
         <h1>Update Information</h1>
+        <h2 id="update-message"></h2>
         <div class="row">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" autocomplete="off">
@@ -133,11 +134,11 @@
         </div>
         <div class="row">
             <label for="name">Password</label>
-            <input type="password" name="password" id="password" autocomplete="off">
+            <input required type="password" name="password" id="password" autocomplete="off">
         </div>
 
         <div class="form-btns">
-            <input class="form-btn" type="submit" value="Confirm">
+            <input id="submit" class="form-btn" type="submit" value="Confirm">
             <input class="form-btn" type="reset" value="Reset">
         </div>
     </form>
