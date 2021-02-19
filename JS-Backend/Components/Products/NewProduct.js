@@ -37,12 +37,14 @@ router.post("/", upload.single("image"), async (req, res) => {
       price: req.body.price,
       image: req.file.path,
    });
+   console.log(product);
 
    product
       .save()
       .then((result) => {
          console.log(result);
          res.status(200).json({
+            success: true,
             message: "Created product successfully",
             createdProduct: {
                name: result.name,
@@ -58,6 +60,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       .catch((err) => {
          console.log(err);
          res.status(500).json({
+            success: false,
             error: err,
          });
       });

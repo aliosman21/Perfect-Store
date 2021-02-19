@@ -18,11 +18,6 @@ router.post("/addUser", async (req, res) => {
    } else {
       //encrypt password to save the hash to the database
       const password = await globalUtilFunctions.hashPassword(req.body.password);
-      /**
-       * create new DTO with the schema we have
-       * By default isAdmin is set to false because
-       * Admins cannot be registered
-       * */
 
       const user = new usersSchema({
          name: req.body.name,

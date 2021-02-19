@@ -63,15 +63,15 @@ const generateLoginToken = async (userData) => {
 const appendDataAndCodeToResponseMessage = (statusCode, statusResponse) => {
    const responseObject = {
       statusCode: statusCode,
-      statusType: "",
+      success: "",
       statusMessage: statusResponse,
    };
    switch (statusCode) {
       case 200:
-         responseObject.statusType = "Confirmation";
+         responseObject.success = true;
          break;
       case 400:
-         responseObject.statusType = "Error";
+         responseObject.success = false;
          break;
    }
    return responseObject;
