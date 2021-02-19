@@ -32,4 +32,8 @@ app.get("/products", (req, res) => {
 app.get("/products/1", (req, res) => {
   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/view-product.html"));
 });
+
+app.get("/add-product", (req, res) => {
+  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/add-product.html"));
+});
 app.listen(port, () => console.log("Server is up on port " + port));
