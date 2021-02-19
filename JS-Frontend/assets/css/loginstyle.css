@@ -80,6 +80,13 @@ form.sign-up-form {
   margin-bottom: 10px;
 }
 
+.error-message {
+  font-size: 1.2rem;
+  color: rgba(255, 0, 0, 0.74);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
 .input-field {
   background-color: #f0f0f0;
   max-width: 380px;
