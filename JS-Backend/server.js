@@ -24,7 +24,17 @@ app.use("/uploads", express.static("uploads"));
 //app.use("<route custom name>", const <route name>)
 //app.use("/", (req, res) => {});
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../JS-Frontend/index.html"));
+  res.render("index.ejs", {
+    loggedIn: false,
+    username: "Omar"
+  });
+});
+
+app.get("/edit", (req, res) => {
+  res.render("edit-info.ejs", {
+    loggedIn: false,
+    username: "Omar Yehia"
+  });
 });
 app.get("/products", (req, res) => {
   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/products.html"));

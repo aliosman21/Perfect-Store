@@ -1,0 +1,50 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 60px;
+}
+
+.info-container .row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.info-container h1 {
+    margin-bottom: 20px;
+}
+
+.row label {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.row input {
+    width: 60%;
+    margin: 10px;
+    text-indent: 5px;
+    transition: 0.3s;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.418);
+    font-size: 1.2rem;
+}
+
+.row input:focus {
+    background-color: rgba(176, 234, 241, 0.692);
+    
+}
+
+
+
