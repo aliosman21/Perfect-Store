@@ -6,13 +6,17 @@ submitBtn.addEventListener("click", (e) => {
 });
 
 async function updateInfo() {
-  const response = await fetch("/updateroute", {
+  const response = await fetch("/Users/editInfo/edit", {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json" 
+    },
     body: JSON.stringify({
       name: document.querySelector("#name").value,
       email: document.querySelector("#email").value,
       address: document.querySelector("#address").value,
       password: document.querySelector("#password").value,
+      token: localStorage.getItem("token"),
     }),
   });
 

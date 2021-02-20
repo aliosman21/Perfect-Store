@@ -6,6 +6,6 @@
         hrefEl.href = "login-signup";
     } else {
         loggedIn.innerText = localStorage.getItem("name");
-        hrefEl.href = "/editroute";
+        hrefEl.href = "/edit-info";
     }
 })();

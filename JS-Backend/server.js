@@ -47,4 +47,8 @@ app.get("/add-product", (req, res) => {
 app.get("/login-signup", (req, res) => {
    res.sendFile(path.join(__dirname, "../JS-Frontend/pages/loginSignup.html"));
 });
+
+app.get("/edit-info", (req, res) => {
+   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/loginSignup.html"));
+});
 app.listen(port, () => console.log("Server is up on port " + port));
