@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
    let lastDoc = await productsSchema.find({}).sort({ _id: -1 });
    console.log(lastDoc);
 
-   //res.send(lastDoc);
+   res.send(lastDoc);
 
    //changed
    connectionToDB.closeConnection();
