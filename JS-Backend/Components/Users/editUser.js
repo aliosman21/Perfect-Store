@@ -30,6 +30,7 @@ router.patch("/edit", async (req, res) => {
       }
       if (req.body.password) {
          const password = await globalUtilFunctions.hashPassword(req.body.password);
+         //hashed password
          modifications.password = password;
       }
       if (req.body.address) {
