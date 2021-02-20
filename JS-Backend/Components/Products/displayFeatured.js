@@ -10,6 +10,8 @@ router.get("/", async (req, res) => {
    console.log(lastDoc);
 
    res.send(lastDoc);
+
+   //changed
    connectionToDB.closeConnection();
 });
 
