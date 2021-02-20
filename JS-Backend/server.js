@@ -29,14 +29,14 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../JS-Frontend/index.html"));
 });
 app.get("/products", (req, res) => {
-   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/products.html"));
+  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/products.html"));
 });
 app.get("/products/1", (req, res) => {
-   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/view-product.html"));
+  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/view-product.html"));
 });
 
 app.get("/add-product", (req, res) => {
-   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/add-product.html"));
+  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/add-product.html"));
 });
 
 app.get("/login-signup", (req, res) => {
