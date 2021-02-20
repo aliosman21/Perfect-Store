@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const registerRoute = require("./Components/Users/RegisterRoute");
 const loginRoute = require("./Components/Users/LoginRoute");
 const productRoute = require("./Components/Products/NewProduct");
+const getFeatured = require("./Components/Products/displayFeatured");
 const editInfoRoute = require("./Components/Users/editUser");
 const path = require("path");
 dotenv.config();
@@ -17,7 +18,8 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, "../JS-Frontend/assets")));
+app.use("/uploads", express.static("uploads"));
+app.use("/products/featured", getFeatured);
 app.use("/User/register", registerRoute);
 app.use("/User/login", loginRoute);
 app.use("/Users/editInfo", editInfoRoute);

@@ -26,25 +26,12 @@ router.post("/edit", async (req, res) => {
          { name: req.body.name },
          { new: true },
          function (err, model) {
-            if (err) console.log(err);
-            else console.log(model);
+            if (err) res.send({ success: false });
+            else res.send({ success: true });
          }
       );
-      /*    usersSchema.findByIdAndUpdate(
-         userData._id,
-         { name: req.body.name },
-         { useFindAndModify: false },
-         function (err, result) {
-            if (err) {
-               console.log(err);
-            } else {
-               console.log(result);
-            }
-         }
-      ); */
    }
 
-   res.send({ success: "YO" });
    connectionToDB.closeConnection();
 });
 
