@@ -32,7 +32,7 @@ async function login() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: document.querySelector("#sign-in-username").value,
+        email: document.querySelector("#sign-in-username").value,
         password: document.querySelector("#sign-in-password").value,
       }),
     }
@@ -44,7 +44,7 @@ async function login() {
     let errorEl = document.querySelector("#error-message");
     errorEl.innerText = jsonRes["message"];
   } else {
-    localStorage.setItem("token") = jsonRes["token"];
+    localStorage.setItem("token", jsonRes["token"]);
     location.href = "/";
   }
 }
@@ -52,8 +52,12 @@ async function login() {
 async function signup() {
   let response = await fetch("http://localhost:5000/User/register/addUser", {
     method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
-      username: document.querySelector("#sign-up-username").value,
+      name: document.querySelector("#sign-up-username").value,
       email: document.querySelector("#sign-up-email").value,
       address: document.querySelector("#address").value,
       password: document.querySelector("#sign-up-password").value,
