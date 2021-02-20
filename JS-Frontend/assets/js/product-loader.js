@@ -41,6 +41,27 @@ async function getProducts() {
     cardEl.appendChild(productCtlEl);
     productsContainer.appendChild(cardEl);
   });
+  let afaf = document.getElementsByClassName("elbutton");
+  let span = document.getElementById("span");
+  // console.log(afaf);
+
+  // afaf.prototype.forEach.call((ayhaga) => {
+  //   ayhaga.addEventListener("click", (e) => {
+  //     e.stopPropagation();
+  //     count += 1;
+  //     span.innerHTML = count;
+  //     console.log(count);
+  //   });
+  // });
+  let count = 0;
+  for (let i = 0; i < afaf.length; i++) {
+    console.log(afaf[i]);
+    afaf[i].onclick = () => {
+      count += 1;
+      span.innerHTML = count;
+      console.log(count);
+    };
+  }
 }
 
 async function getCategories() {
