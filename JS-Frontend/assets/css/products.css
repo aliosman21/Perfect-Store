@@ -102,16 +102,10 @@
 }
 
 .img-container img {
+    height: 50%;
     transition: 0.4s;
 }
 
-.img-container:hover img {
-    opacity: 0.3;
-}
-
-.img-container:hover .btn-view {
-    opacity: 1;
-}
 
 .product-btns button:hover,
 .btn-view:hover {

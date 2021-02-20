@@ -29,7 +29,7 @@ async function getProducts() {
     productPriceEl.innerText = "$" + product.price; ////***/// */
     viewBtnDivEl.classList.add("btn-product");
     viewBtnEl.innerText = "VIEW";
-    viewBtnEl.id = product.id; ////*****///// */
+    viewBtnEl.id = product["_id"]; ////*****///// */
 
     viewBtnDivEl.appendChild(viewBtnEl);
     productDescEl.appendChild(productNameEl);
