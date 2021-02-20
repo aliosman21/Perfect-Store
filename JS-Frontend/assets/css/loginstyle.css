@@ -294,13 +294,13 @@ form.sign-up-form {
   .signin-signup {
     width: 100%;
     left: 50%;
-    top: 95%;
+    top: 95%; 
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
 
   .panels-container {
-    z-index: 10;
+    /* z-index: 10; */
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
   }
