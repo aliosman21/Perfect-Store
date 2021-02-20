@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const registerRoute = require("./Components/Users/RegisterRoute");
 const loginRoute = require("./Components/Users/LoginRoute");
 const productRoute = require("./Components/Products/NewProduct");
+const getFeatured = require("./Components/Products/displayFeatured");
 const editInfoRoute = require("./Components/Users/editUser");
 const path = require("path");
 dotenv.config();
@@ -17,7 +18,9 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
+app.use("/uploads", express.static("uploads"));
 app.use(express.static(path.join(__dirname, "../JS-Frontend/assets")));
+app.use("/products/featured", getFeatured);
 app.use("/User/register", registerRoute);
 app.use("/User/login", loginRoute);
 app.use("/Users/editInfo", editInfoRoute);
@@ -26,7 +29,7 @@ app.use("/uploads", express.static("uploads"));
 //app.use("<route custom name>", const <route name>)
 //app.use("/", (req, res) => {});
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../JS-Frontend/index.html"));
+   res.sendFile(path.join(__dirname, "../JS-Frontend/index.html"));
 });
 app.get("/products", (req, res) => {
   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/products.html"));
@@ -40,6 +43,6 @@ app.get("/add-product", (req, res) => {
 });
 
 app.get("/login-signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/loginSignup.html"));
+   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/loginSignup.html"));
 });
 app.listen(port, () => console.log("Server is up on port " + port));

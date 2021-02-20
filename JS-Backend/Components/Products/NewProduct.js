@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const productsSchema = require("./ProductModel");
+const jwt_decode = require("jwt-decode");
 const connectionToDB = require("../DBConnector/ConnectionHandler");
 const multer = require("multer");
 
@@ -31,39 +32,45 @@ const upload = multer({
 
 router.post("/", upload.single("image"), async (req, res) => {
    connectionToDB.establishConnection();
-   const product = new productsSchema({
-      name: req.body.name,
-      quantity: req.body.quantity,
-      price: req.body.price,
-      image: req.file.path,
-   });
-   console.log(product);
+   //console.log(req.body);
+   let decoded = jwt_decode(req.body.token);
+   console.log(decoded);
 
-   product
-      .save()
-      .then((result) => {
-         console.log(result);
-         res.status(200).json({
-            success: true,
-            message: "Created product successfully",
-            createdProduct: {
-               name: result.name,
-               price: result.price,
-               request: {
-                  type: "GET",
-                  url: "http://localhost:3000/products/" + result.name,
-               },
-            },
-         });
-         connectionToDB.closeConnection();
-      })
-      .catch((err) => {
-         console.log(err);
-         res.status(500).json({
-            success: false,
-            error: err,
-         });
+   //console.log(req.body);
+   if (decoded.isAdmin) {
+      const product = new productsSchema({
+         name: req.body.name,
+         quantity: req.body.quantity,
+         description: req.body.description,
+         price: req.body.price,
+         image: "http://localhost:5000/" + req.file.path,
       });
+      console.log(product);
+
+      product
+         .save()
+         .then((result) => {
+            console.log(result);
+            res.status(200).json({
+               success: true,
+               message: "Created product successfully",
+               createdProduct: {
+                  name: result.name,
+                  price: result.price,
+               },
+            });
+            connectionToDB.closeConnection();
+         })
+         .catch((err) => {
+            console.log(err);
+            res.status(500).json({
+               success: false,
+               error: err,
+            });
+         });
+   } else {
+      res.send({ success: false, message: "Access Denied" });
+   }
 });
 
 module.exports = router;
