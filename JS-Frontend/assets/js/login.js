@@ -42,6 +42,7 @@ async function login() {
     errorEl.innerText = jsonRes["statusMessage"];
   } else {
     localStorage.setItem("token", jsonRes["token"]);
+    localStorage.setItem("name", jsonRes["name"]);
     location.href = "/";
   }
 }

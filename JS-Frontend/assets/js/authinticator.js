@@ -5,7 +5,7 @@
         loggedIn.innerText = "Login/Register";
         hrefEl.href = "login-signup";
     } else {
-        loggedIn.innerText = localStorage.getItem("token");
+        loggedIn.innerText = localStorage.getItem("name");
         hrefEl.href = "/editroute";
     }
 })();
