@@ -27,7 +27,9 @@ app.use("/products/addNewProduct", productRoute);
 app.use("/uploads", express.static("uploads"));
 //app.use("<route custom name>", const <route name>)
 //app.use("/", (req, res) => {});
-
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../JS-Frontend/index.html"));
+});
 app.get("/products", (req, res) => {
    res.sendFile(path.join(__dirname, "../JS-Frontend/pages/products.html"));
 });
@@ -38,7 +40,8 @@ app.get("/products/1", (req, res) => {
 app.get("/add-product", (req, res) => {
    res.sendFile(path.join(__dirname, "../JS-Frontend/pages/add-product.html"));
 });
-app.get("/log", (req, res) => {
-   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/loginSignup.html"));
+
+app.get("/login-signup", (req, res) => {
+  res.sendFile(path.join(__dirname, "../JS-Frontend/pages/loginSignup.html"));
 });
 app.listen(port, () => console.log("Server is up on port " + port));
