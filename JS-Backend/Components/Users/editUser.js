@@ -29,7 +29,8 @@ router.patch("/edit", async (req, res) => {
          modifications.email = req.body.email;
       }
       if (req.body.password) {
-         modifications.password = req.body.password;
+         const password = await globalUtilFunctions.hashPassword(req.body.password);
+         modifications.password = password;
       }
       if (req.body.address) {
          modifications.address = req.body.address;
