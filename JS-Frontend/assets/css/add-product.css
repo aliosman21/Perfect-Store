@@ -67,3 +67,7 @@ input[type="file"] {
   align-items: center;
   color: white;
 }
+
+textarea {
+  resize: none;
+}
