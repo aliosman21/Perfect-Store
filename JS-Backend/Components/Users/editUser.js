@@ -19,15 +19,30 @@ router.post("/edit", async (req, res) => {
       );
    } else {
       const userData = await globalUtilFunctions.getUserBackFromDatabase(decoded.email);
-      console.log(userData._id);
+      console.log("USERDATA");
+      console.log(userData);
+      let modifications = {};
+      if (req.body.name) {
+         modifications.name = req.body.name;
+      }
+      if (req.body.email) {
+         modifications.email = req.body.email;
+      }
+      if (req.body.password) {
+         modifications.password = req.body.password;
+      }
+      if (req.body.address) {
+         modifications.address = req.body.address;
+      }
+
+      console.log(modifications);
 
       await usersSchema.findByIdAndUpdate(
          userData._id,
-         { name: req.body.name },
-         { new: true },
+         { $set: modifications },
          function (err, model) {
-            if (err) res.send({ success: false });
-            else res.send({ success: true });
+            if (err) res.send({ success: false, message: "Something went wrong" });
+            else res.send({ success: true, message: "Updated successfully" });
          }
       );
    }
