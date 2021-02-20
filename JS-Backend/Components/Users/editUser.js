@@ -4,7 +4,7 @@ const jwt_decode = require("jwt-decode");
 const globalUtilFunctions = require("./Util/UserUtilFunctions");
 const connectionToDB = require("../DBConnector/ConnectionHandler");
 
-router.post("/edit", async (req, res) => {
+router.patch("/edit", async (req, res) => {
    connectionToDB.establishConnection();
    let responseObject;
    //console.log(req.body);
