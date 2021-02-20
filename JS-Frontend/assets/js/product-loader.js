@@ -28,7 +28,7 @@ async function getProducts() {
     productNameEl.innerText = product.name; ////***//// */
     productPriceEl.innerText = "$" + product.price; ////***/// */
     viewBtnDivEl.classList.add("btn-product");
-    viewBtnEl.innerText = "VIEW";
+    viewBtnEl.innerText = "Add To Cart";
     viewBtnEl.id = product["_id"]; ////*****///// */
 
     viewBtnDivEl.appendChild(viewBtnEl);
@@ -41,7 +41,7 @@ async function getProducts() {
     cardEl.appendChild(productCtlEl);
     productsContainer.appendChild(cardEl);
   });
-  let afaf = document.getElementsByClassName("elbutton");
+  let afaf = document.getElementsByClassName("btn-product");
   let span = document.getElementById("span");
   // console.log(afaf);
 

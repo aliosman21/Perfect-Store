@@ -345,16 +345,19 @@ body {
   height: 100%;
 }
 
-/* modal */
-
-.show-cart li {
+#span {
   display: flex;
+  justify-content: center;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  width: 20px;
+  align-items: center;
+  position: relative;
+  height: 20px;
 }
-.card {
-  margin-bottom: 20px;
-}
-.card-img-top {
-  width: 200px;
-  height: 200px;
-  align-self: center;
+
+#span:empty {
+  display: none;
 }

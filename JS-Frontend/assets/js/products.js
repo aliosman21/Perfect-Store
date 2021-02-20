@@ -21,7 +21,6 @@ async function getProducts() {
      [{"_id":"6030f117144b8936c0bd4b49","name":"laptop","quantity":552,"price":300,"image":"uploads\\r.jpg","__v":0},
      */
 
-
   // kekkw
   jsonRes.forEach((product) => {
     const cardEl = document.createElement("div");
@@ -40,7 +39,7 @@ async function getProducts() {
     productCtlEl.classList.add("product-controls");
     productDescEl.classList.add("product-desc");
     productNameEl.innerText = product.name; ////***//// */
-    productPriceEl.innerText = "$" +  product.price; ////***/// */
+    productPriceEl.innerText = "$" + product.price; ////***/// */
     productBtns.classList.add("product-btns");
     cartBtnEl.classList.add("btn-card");
     cartBtnEl.innerHTML =
@@ -57,4 +56,16 @@ async function getProducts() {
     cardEl.appendChild(productCtlEl);
     productsContainer.appendChild(cardEl);
   });
+
+  let afaf = document.getElementsByClassName("btn-card");
+  let span = document.getElementById("span");
+  let count = 0;
+  for (let i = 0; i < afaf.length; i++) {
+    console.log(afaf[i]);
+    afaf[i].onclick = () => {
+      count += 1;
+      span.innerHTML = count;
+      console.log(count);
+    };
+  }
 }
