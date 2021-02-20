@@ -7,6 +7,7 @@ router.post("/authenticateLogin", async (req, res) => {
    console.log(req.body);
    if (await globalUtilFunctions.checkIfExistInDatabase(req.body.email)) {
       const userData = await globalUtilFunctions.getUserBackFromDatabase(req.body.email);
+      console.log(userData);
 
       const isValidPass = await globalUtilFunctions.checkIfPasswordIsAuthentic(
          req.body.password,
@@ -20,6 +21,7 @@ router.post("/authenticateLogin", async (req, res) => {
 
          const loginToken = await globalUtilFunctions.generateLoginToken(userData);
          responseObject["token"] = loginToken;
+         responseObject["name"] = userData.name;
       } else {
          responseObject = globalUtilFunctions.appendDataAndCodeToResponseMessage(
             400,
