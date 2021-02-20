@@ -15,21 +15,28 @@ signInBtn.addEventListener("click", () => {
 signIn.addEventListener("click", (e) => {
   e.preventDefault();
   login();
-})
+});
 
 signUp.addEventListener("click", (e) => {
   e.preventDefault();
   signup();
-})
+});
 
 async function login() {
-  let response = await fetch("http://localhost:5000/User/login/authenticateLogin", {
-    method: "POST",
-    body: JSON.stringify({
-      username: document.querySelector("#sign-in-username").value,
-      password: document.querySelector("#sign-in-password").value
-    })
-  });
+  let response = await fetch(
+    "http://localhost:5000/User/login/authenticateLogin",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: document.querySelector("#sign-in-username").value,
+        password: document.querySelector("#sign-in-password").value,
+      }),
+    }
+  );
 
   let jsonRes = await response.json();
 
@@ -40,14 +47,14 @@ async function login() {
 }
 
 async function signup() {
-  let response = await fetch ("http://localhost:5000/User/register/addUser", {
+  let response = await fetch("http://localhost:5000/User/register/addUser", {
     method: "POST",
     body: JSON.stringify({
       username: document.querySelector("#sign-up-username").value,
       email: document.querySelector("#sign-up-email").value,
       address: document.querySelector("#address").value,
-      password: document.querySelector("#sign-up-password").value
-    })
+      password: document.querySelector("#sign-up-password").value,
+    }),
   });
 
   let jsonRes = await response.json();
