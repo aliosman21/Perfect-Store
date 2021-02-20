@@ -25,19 +25,23 @@ signUp.addEventListener("click", (e) => {
 async function login() {
   let response = await fetch("/User/login/authenticateLogin", {
     method: "POST",
-    body: {
-      username: document.querySelector("#sign-in-username").value,
-      password: document.querySelector("#sign-in-password").value,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      email: document.querySelector("#sign-in-username").value,
+      password: document.querySelector("#sign-in-password").value,
+    }),
   });
 
   let jsonRes = await response.json();
 
   if (jsonRes["success"] == false) {
-    let errorEl = document.querySelector("#error-message");
-    errorEl.innerText = jsonRes["message"];
+    let errorEl = document.querySelector(".error-message");
+    errorEl.innerText = jsonRes["statusMessage"];
   } else {
-    localStorage.setItem("token") = jsonRes["token"];
+    localStorage.setItem("token", jsonRes["token"]);
     location.href = "/";
   }
 }
@@ -60,8 +64,8 @@ async function signup() {
   let jsonRes = await response.json();
 
   if (jsonRes["success"] == false) {
-    let errorEl = document.querySelector("#error-message");
-    errorEl.innerText = jsonRes["message"];
+    let errorEl = document.querySelector(".error-message");
+    errorEl.innerText = jsonRes["statusMessage"];
   } else {
     location.href = "/";
   }
