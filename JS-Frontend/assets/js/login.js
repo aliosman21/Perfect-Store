@@ -23,7 +23,7 @@ signUp.addEventListener("click", (e) => {
 })
 
 async function login() {
-  let response = await fetch("http://localhost:5000/User/login/authenticateLogin", {
+  let response = await fetch("/User/login/authenticateLogin", {
     method: "POST",
     body: JSON.stringify({
       username: document.querySelector("#sign-in-username").value,
@@ -36,6 +36,9 @@ async function login() {
   if (jsonRes["success"] == false) {
     let errorEl = document.querySelector("#error-message");
     errorEl.innerText = jsonRes["message"];
+  } else {
+    localStorage.setItem("token") = jsonRes["token"];
+    location.href = "/";
   }
 }
 
@@ -55,5 +58,7 @@ async function signup() {
   if (jsonRes["success"] == false) {
     let errorEl = document.querySelector("#error-message");
     errorEl.innerText = jsonRes["message"];
+  } else {
+    location.href = "/";
   }
 }
