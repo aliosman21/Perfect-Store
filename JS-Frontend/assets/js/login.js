@@ -43,6 +43,9 @@ async function login() {
   if (jsonRes["success"] == false) {
     let errorEl = document.querySelector("#error-message");
     errorEl.innerText = jsonRes["message"];
+  } else {
+    localStorage.setItem("token") = jsonRes["token"];
+    location.href = "/";
   }
 }
 
@@ -62,5 +65,7 @@ async function signup() {
   if (jsonRes["success"] == false) {
     let errorEl = document.querySelector("#error-message");
     errorEl.innerText = jsonRes["message"];
+  } else {
+    location.href = "/";
   }
 }
