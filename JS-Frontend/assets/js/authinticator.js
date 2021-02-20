@@ -5,7 +5,13 @@
         loggedIn.innerText = "Login/Register";
         hrefEl.href = "login-signup";
     } else {
-        loggedIn.innerText = localStorage.getItem("name");
-        hrefEl.href = "/edit-info";
+        
+        if(localStorage.getItem("isAdmin")){
+            loggedIn.innerText = "Admin Panel";
+            hrefEl.href = "/admin-panel";
+        } else {
+            loggedIn.innerText = localStorage.getItem("name");
+            hrefEl.href = "/edit-info";
+        } 
     }
 })();

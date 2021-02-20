@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const globalUtilFunctions = require("./Util/UserUtilFunctions");
 const connectionToDB = require("../DBConnector/ConnectionHandler");
+const { response } = require("express");
 
 router.post("/authenticateLogin", async (req, res) => {
    connectionToDB.establishConnection();
@@ -22,6 +23,7 @@ router.post("/authenticateLogin", async (req, res) => {
          const loginToken = await globalUtilFunctions.generateLoginToken(userData);
          responseObject["token"] = loginToken;
          responseObject["name"] = userData.name;
+         responseObject["isAdmin"] = userData.isAdmin;
       } else {
          responseObject = globalUtilFunctions.appendDataAndCodeToResponseMessage(
             400,

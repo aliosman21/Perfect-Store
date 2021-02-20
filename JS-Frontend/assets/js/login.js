@@ -43,6 +43,7 @@ async function login() {
   } else {
     localStorage.setItem("token", jsonRes["token"]);
     localStorage.setItem("name", jsonRes["name"]);
+    localStorage.setItem("isAdmin", jsonRes["isAdmin"]);
     location.href = "/";
   }
 }
