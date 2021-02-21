@@ -96,3 +96,35 @@ viewOrders.addEventListener("click", e => {
     editForm.classList.remove("active");
     allForm.classList.add("active");
 })
+
+async function getAllOrders() {
+    const response = await fetch ("/orders/getAll");
+    const jsonRes = await response.json();
+    const orders = jsonRes.products;
+    const rowCont = document.querySelector(".row-container");
+    for(let i = 0; i < orders.length; i++) {
+        let order = orders[i];
+        const rowEl = document.createElement("div");
+        const imgEl = document.createElement("img");
+        const labelEl = document.createElement("label");
+        const quantityEl = document.createElement("label");
+        const priceEl = document.createElement("p");
+        const spanEl = document.createElement("span");
+        const span$El = document.createElement("span");
+        
+        rowEl.classList.add("row");
+        imgEl.src = order.image;
+        labelEl.innerText = order.name;
+        quantityEl.innerText = order.quantity;
+        spanEl.innerText = order.price;
+        span$El.innerText = "$ ";
+
+        priceEl.appendChild(span$El);
+        priceEl.appendChild(spanEl);
+        rowEl.appendChild(imgEl);
+        rowEl.appendChild(labelEl);
+        rowEl.appendChild(quantityEl);
+        rowEl.appendChild(priceEl);
+        rowCont.appendChild(rowEl);
+    }
+}
