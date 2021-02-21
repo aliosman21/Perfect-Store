@@ -13,10 +13,7 @@ router.patch("/edit", async (req, res) => {
    //console.log(decoded);
 
    if (await globalUtilFunctions.checkIfExistInDatabase(req.body.email)) {
-      responseObject = globalUtilFunctions.appendDataAndCodeToResponseMessage(
-         400,
-         "Email Already Exists"
-      );
+      res.send({ success: false, message: "email already exists" });
    } else {
       const userData = await globalUtilFunctions.getUserBackFromDatabase(decoded.email);
       console.log("USERDATA");
@@ -39,14 +36,9 @@ router.patch("/edit", async (req, res) => {
 
       console.log(modifications);
 
-      await usersSchema.findByIdAndUpdate(
-         userData._id,
-         { $set: modifications },
-         function (err, model) {
-            if (err) res.send({ success: false, message: "Something went wrong" });
-            else res.send({ success: true, message: "Updated successfully" });
-         }
-      );
+      await usersSchema.findByIdAndUpdate(userData._id, { $set: modifications });
+      // await usersSchema.findOneAndDelete(userData._id).remove().exec();
+      res.send({ success: true, message: "done" });
    }
 
    connectionToDB.closeConnection();
