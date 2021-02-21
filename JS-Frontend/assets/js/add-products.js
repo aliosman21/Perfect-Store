@@ -123,7 +123,7 @@ async function getAllOrders() {
             imgEl.src = order[j].image;
             labelEl.innerText = order[j].name;
             quantityEl.innerText = order[j].quantity;
-            spanEl.innerText = order[j].price;
+            spanEl.innerText = parseInt(order[j].price) * parseInt(order[j].quantity);
             span$El.innerText = "$ ";
 
             priceEl.appendChild(span$El);

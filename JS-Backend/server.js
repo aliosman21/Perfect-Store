@@ -61,7 +61,7 @@ app.get("/edit-info", (req, res) => {
 });
 
 app.get("/admin-panel", (req, res) => {
-   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/add-product.html"));
+   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/admin-panel.html"));
 });
 
 app.get("/checkout", (req, res) => {

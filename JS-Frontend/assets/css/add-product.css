@@ -15,7 +15,9 @@ body {
   margin-top: 30px;
 }
 
-
+.product-form.forms.active.orders {
+  width: 100% !important;
+}
 
 .active {
   display: block;
