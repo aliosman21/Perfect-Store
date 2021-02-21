@@ -6,7 +6,7 @@
         hrefEl.href = "login-signup";
     } else {
         
-        if(localStorage.getItem("isAdmin")){
+        if(localStorage.getItem("isAdmin") === true){
             loggedIn.innerText = "Admin Panel";
             hrefEl.href = "/admin-panel";
         } else {
