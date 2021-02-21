@@ -5,9 +5,9 @@ const connectionToDB = require("../DBConnector/ConnectionHandler");
 router.get("/", async (req, res) => {
    connectionToDB.establishConnection();
    //console.log(req.body);
-   console.log("HO");
+   //console.log("HO");
    let lastDoc = await productsSchema.find({}).sort({ _id: -1 });
-   console.log(lastDoc);
+   //console.log(lastDoc);
 
    res.send(lastDoc);
 

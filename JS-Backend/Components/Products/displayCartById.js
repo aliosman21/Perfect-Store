@@ -4,7 +4,7 @@ const connectionToDB = require("../DBConnector/ConnectionHandler");
 
 router.post("/", async (req, res) => {
    connectionToDB.establishConnection();
-   console.log(req.body);
+   //console.log(req.body);
 
    let productsInCart = [];
    for (let p in req.body.products) {
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
          res.send({ success: false, message: "something went wrong" });
       }
    }
-   console.log(productsInCart);
+   //console.log(productsInCart);
    res.send({ success: true, products: productsInCart });
 
    //let lastDoc = await productsSchema.find({}).sort({ _id: -1 }).limit(4);

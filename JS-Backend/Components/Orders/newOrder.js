@@ -7,11 +7,12 @@ router.post("/", async (req, res) => {
    connectionToDB.establishConnection();
    //console.log(req.body.products);
    let orders = [];
-
-   for (p in req.body.products) {
+   //console.log(req);
+   console.log(req.body);
+   for (p in req.body) {
       let productInOrder = {};
-      productInOrder.productID = req.body.products[p].id;
-      productInOrder.quantity = req.body.products[p].quantity;
+      productInOrder.productID = req.body[p].id;
+      productInOrder.quantity = req.body[p].quantity;
       orders.push(productInOrder);
    }
    //console.log(orders);

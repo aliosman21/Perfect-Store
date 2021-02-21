@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
    connectionToDB.establishConnection();
    //console.log(req.body);
    try {
-      console.log("HO");
+      //console.log("HO");
       let response = {};
       let productResponse = [];
       let lastDoc = await ordersSchema.find({}).sort({ _id: -1 });
@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
       }
       response.success = true;
       response.products = productResponse;
-      console.log(response);
+      //console.log(response);
       res.send(response);
    } catch {
       response.success = false;
