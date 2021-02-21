@@ -72,9 +72,20 @@ async function getProducts() {
 
       The second option is below ..
       */
+
+      /*  Hi Omar!
+      The 1st option will save us a lot of time and help us to be better people I guess so you won't need to manipulate the dom, Cause if you manipulate the dom you'll be manipulative somehow, so we ain't be manipulative because this is TOXIC */
+
       cart.add(e.target.id);
       console.log(cart);
       span.innerHTML = cart.size;
+      // this will add the clicked item to local storage and store it in array
+      // however when you refresh the page they will remain in local storage
+      // and the red span counter will disappear
+      // but this is unexpected behavior so we will ignore it for now.
+      // and we will retrieve the data from local storage in checkout page.
+
+      localStorage.setItem("cart", Array.from(cart));
 
       /* 
       Second option shown below is just to DOM manipulate and get information using DOM, and save the whole
