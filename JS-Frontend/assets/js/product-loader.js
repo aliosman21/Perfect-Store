@@ -57,8 +57,6 @@ async function getProducts() {
   for (let i = 0; i < afaf.length; i++) {
     console.log(afaf[i]);
     afaf[i].onclick = (e) => {
-
-
       /* Hi Abdelfata7 
       Regarding the cart, I've made a "Set" in landing.js called card
       Set only keeps unique data so if button is clicked twice for same product it wont add it
@@ -76,20 +74,22 @@ async function getProducts() {
       */
       cart.add(e.target.id);
       console.log(cart);
+      span.innerHTML = cart.size;
 
       /* 
-      Second option shown below is just to DOM maniulate and get information using DOM, and save the whole
+      Second option shown below is just to DOM manipulate and get information using DOM, and save the whole
       object in the set, then loop in the checkout page
       */
       console.log(e.currentTarget.parentElement.firstChild.firstChild); // this returns the name of product
       console.log(e.currentTarget.parentElement.firstChild.lastChild); // this returns the price
-      console.log(e.currentTarget.parentElement.parentElement.firstChild.firstChild.src);  // this returns the src of the image
+      console.log(
+        e.currentTarget.parentElement.parentElement.firstChild.firstChild.src
+      ); // this returns the src of the image
 
       /*
       I couldn't do the first option because the fetch single item wasn't done in the backend
       If you wake up before me just pick which is suitable for you from both options
       */
-
 
       /*
       Checkout page nearly completed, CSS needs modification, 
