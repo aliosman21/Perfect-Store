@@ -32,10 +32,10 @@ const upload = multer({
 
 router.post("/", upload.single("image"), async (req, res) => {
    connectionToDB.establishConnection();
-   //console.log(req.body);
+   console.log(req.body);
    let decoded = jwt_decode(req.body.token);
    console.log(decoded);
-
+   console.log(req.body);
    //console.log(req.body);
    if (decoded.isAdmin) {
       const product = new productsSchema({
