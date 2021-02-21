@@ -7,21 +7,6 @@ async function getProducts() {
   let response = await fetch(`/products/getAll`);
   let jsonRes = await response.json();
 
-  /**
-     * query for each page
-     jsonRes = {
-         categoryName: Something
-         totalnumberof products: --
-         Numberofpages: something
-         data = []
-
-     }
-
-
-     [{"_id":"6030f117144b8936c0bd4b49","name":"laptop","quantity":552,"price":300,"image":"uploads\\r.jpg","__v":0},
-     */
-
-  // kekkw
   jsonRes.forEach((product) => {
     const cardEl = document.createElement("div");
     const imgContainerEl = document.createElement("div");
@@ -59,15 +44,13 @@ async function getProducts() {
 
   let productsCart = new Set();
 
-  let afaf = document.getElementsByClassName("btn-card");
+  let btns = document.getElementsByClassName("btn-card");
   let span = document.getElementById("span");
-  for (let i = 0; i < afaf.length; i++) {
-    console.log(afaf[i]);
-    afaf[i].onclick = (e) => {
-      productsCart.add(e.target.id);
-      console.log(productsCart);
+  for (let i = 0; i < btns.length; i++) {
+    console.log(btns[i]);
+    btns[i].onclick = (e) => {
+      productsCart.add(e.currentTarget.id);
       span.innerHTML = productsCart.size;
-      console.log(productsCart.size);
     };
   }
 }

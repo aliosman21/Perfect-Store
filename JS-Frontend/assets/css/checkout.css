@@ -51,6 +51,16 @@ main {
 .total {
     text-align: end;
     margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.removeBtn {
+    padding: 8px;
+    background-color: red;
+    color: white;
+    outline: none;
+    border-radius: 8px;
 }
 
 #submitBtn {
