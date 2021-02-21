@@ -27,3 +27,4 @@ function showSlides(n) {
 }
 
 // cart
+var cart = new Set();

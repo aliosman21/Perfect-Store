@@ -56,10 +56,50 @@ async function getProducts() {
   let count = 0;
   for (let i = 0; i < afaf.length; i++) {
     console.log(afaf[i]);
-    afaf[i].onclick = () => {
-      count += 1;
-      span.innerHTML = count;
-      console.log(count);
+    afaf[i].onclick = (e) => {
+
+
+      /* Hi Abdelfata7 
+      Regarding the cart, I've made a "Set" in landing.js called card
+      Set only keeps unique data so if button is clicked twice for same product it wont add it
+
+      So just change your red dot on the cart icon in nav bar to show the length of this Set
+
+      The Set keeps track of product ids by
+      "e.target.id" this will always return the id of the Product
+
+      Now we have 2 options
+      First one is to keep those ids and save them in localStorage
+      Then in a checkout page take this array and fetch single products products
+
+      The second option is below ..
+      */
+      cart.add(e.target.id);
+      console.log(cart);
+
+      /* 
+      Second option shown below is just to DOM maniulate and get information using DOM, and save the whole
+      object in the set, then loop in the checkout page
+      */
+      console.log(e.currentTarget.parentElement.firstChild.firstChild); // this returns the name of product
+      console.log(e.currentTarget.parentElement.firstChild.lastChild); // this returns the price
+      console.log(e.currentTarget.parentElement.parentElement.firstChild.firstChild.src);  // this returns the src of the image
+
+      /*
+      I couldn't do the first option because the fetch single item wasn't done in the backend
+      If you wake up before me just pick which is suitable for you from both options
+      */
+
+
+      /*
+      Checkout page nearly completed, CSS needs modification, 
+      JS will work with one of the two options,
+      bs el logic sh3'al y3ny, grb t3'yr el quantity ely fi awl row di
+      htla2y el total byt3'yr
+
+      children[7] da htla2eh hnak, da bygeb el price ely mktob
+      children[5] da bygeb ely mktob gwa el quantity 3shan lw toht
+      */
     };
   }
 }

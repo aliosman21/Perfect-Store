@@ -55,4 +55,8 @@ app.get("/edit-info", (req, res) => {
 app.get("/admin-panel", (req, res) => {
    res.sendFile(path.join(__dirname, "../JS-Frontend/pages/add-product.html"));
 });
+
+app.get("/checkout", (req, res) => {
+   res.sendFile(path.join(__dirname, "../JS-Frontend/pages/checkout.html"));
+});
 app.listen(port, () => console.log("Server is up on port " + port));
