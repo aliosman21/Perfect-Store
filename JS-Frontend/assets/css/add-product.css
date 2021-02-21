@@ -1,7 +1,24 @@
+body {
+  height: 100%;
+}
 .content {
   margin-top: 50px;
   display: flex;
   justify-content: center;
+}
+
+.forms {
+  display: none;
+}
+
+.btn-forms {
+  margin-top: 30px;
+}
+
+
+
+.active {
+  display: block;
 }
 
 .product-form {
@@ -32,7 +49,8 @@ input[type="file"] {
   box-sizing: border-box;
 }
 
-.form-btn {
+.form-btn,
+.btn-forms button {
   width: 100%;
   background-color: #0171df;
   color: white;
@@ -43,11 +61,20 @@ input[type="file"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   cursor: pointer;
+  transition: 0.5s;
 }
 
-.form-btn:hover {
+.form-btn:hover,
+.btn-forms button:hover {
   color: #333;
   background-color: #5fa2e6;
+}
+
+.btn-forms button {
+  width: 25%;
+  margin: 0 10px;
+  border-radius: 5px;
+
 }
 
 .footer {
@@ -70,4 +97,46 @@ input[type="file"] {
 
 textarea {
   resize: none;
+}
+
+
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  padding: 35px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background: #f7f7f7;
+}
+
+.info-container .row,
+.row-title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center  ;
+}
+
+.row {
+  border-bottom: #333 1px solid;
+}
+
+.info-container h1 {
+  margin-bottom: 20px;
+}
+  
+.row img {
+  height: 100%;
+  padding: 10px;
+}
+
+.row input[type="number"]{
+  width: 40px;
+  padding: 5px;
 }

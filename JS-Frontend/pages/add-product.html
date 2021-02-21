@@ -74,8 +74,15 @@
         </ul>
       </div>
 
+      <div class="btn-forms">
+        <button id="show-add">Add Product</button>
+        <button id="show-edit">Edit Product</button>
+        <button id="show-all">View all orders</button>
+      </div>
+
       <main class="content">
-        <form class="product-form" action="">
+        
+        <form class="product-form forms " action="" id="add-product">
           <div class="form-container">
             <h2>Add Product</h2>
             <h4 id="message"></h4>
@@ -112,16 +119,77 @@
           </div>
 
           <div class="form-container">
-            <button class="form-btn" type="submit">Add</button>
+            <button class="form-btn" type="submit" id="addBtn">Add</button>
           </div>
+        </form>
+
+        <form class="product-form forms " action="" id="edit-product">
+          <div class="form-container">
+            <h2>Edit Product</h2>
+            <h4 id="message"></h4>
+          </div>
+
+          <div class="form-container">
+            <label for="name">Product ID</label>
+            <div class="form-group">
+              <input required type="text" name="id" id="id" />
+            </div>
+            <label for="name">Product Name</label>
+            <div class="form-group">
+              <input required type="text" name="name" id="name" />
+            </div>
+            <label for="quantity">Product Quantity</label>
+            <div class="form-group">
+              <input required type="text" name="quantity" id="quantity" />
+            </div>
+            <label for="price">Product Price</label>
+            <div class="form-group">
+              <input required type="text" name="price" id="price" />
+            </div>
+            <label for="desc">Product Description</label>
+            <div class="form-group">
+              <textarea required name="textarea" id="textarea" rows="10">
+              </textarea>
+            </div>
+            <label for="img">Select image:</label>
+            <div class="form-group">
+              <input
+                required
+                type="file"
+                id="img"
+                name="img"
+                accept="image/*"
+              />
+            </div>
+          </div>
+
+          <div class="form-container">
+            <button class="form-btn" type="submit" id="editBtn">Edit</button>
+          </div>
+        </form>
+
+
+        <form class="product-form forms" action="" id="prev-orders">
+          <div class="info-container">
+            <h2>All Orders</h2>
+            
+          <div class="row-title">
+            <h4>Image</h4>
+            <h4>Product Name</h4>
+            <h4>Quantity</h4>
+            <h4>Price</h4>
+          </div>
+          <div class="row-container">
+
+
+          </div>
+    
+          </div>
+
         </form>
       </main>
     </div>
-    <footer>
-      <div class="footer">
-        <h3>All Rights Reserved to Ali, Omar and Abdelfatah &copy; 2021</h3>
-      </div>
-    </footer>
+
     <script src="/js/add-products.js"></script>
     <script src="/js/authinticator.js"></script>
   </body>
