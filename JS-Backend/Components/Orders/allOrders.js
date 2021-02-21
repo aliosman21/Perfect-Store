@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
             });
             productData.quantity = lastDoc[doc].products[id].quantity;
             intermediateObject.push(productData);
-            //console.log(productData);
          }
          if (intermediateObject.length) productResponse.push(intermediateObject);
       }
