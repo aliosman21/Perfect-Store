@@ -14,14 +14,15 @@ router.get("/", async (req, res) => {
       //console.log(lastDoc);
       for (doc in lastDoc) {
          //console.log(lastDoc[doc].products);
+         let intermediateObject = [];
          for (id in lastDoc[doc].products) {
             const productData = await productsSchema.findOne({
                _id: lastDoc[doc].products[id].productID,
             });
             productData.quantity = lastDoc[doc].products[id].quantity;
-            productResponse.push(productData);
-            //console.log(productData);
+            intermediateObject.push(productData);
          }
+         if (intermediateObject.length) productResponse.push(intermediateObject);
       }
       response.success = true;
       response.products = productResponse;
