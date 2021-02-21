@@ -4,8 +4,6 @@
   retrieveProducts();
 })();
 
-
-
 /* Helpers */
 async function retrieveProducts() {
   let x = localStorage.getItem("cart");
@@ -110,14 +108,49 @@ async function retrieveProducts() {
 const submitBtn = document.querySelector("#submitBtn");
 submitBtn.addEventListener("click", e => {
   e.preventDefault();
+
+  const quan = document.getElementsByClassName("quantity");
+
+  if(quan.length > 0){
+    let arr = [];
+    for(let i = 0; i < quan.length; i++) {
+      let obj = {};
+      obj.id = quan[i].id;
+      obj.quantity = quan[i].value;
+      arr.push(obj);
+    }
+    console.log(arr);
+
+    confirmPurchase(arr);
+  }
+  
+  
+})
+
+async function confirmPurchase(arr) {
+  const response = await fetch("/orders/NewOrder", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(arr)
+  })
+
+  const jsonRes = await response.json();
   const message = document.querySelector("#confirm-message");
   const container = document.querySelector(".row-container");
-  container.innerHTML = "";
-  message.innerText = "Successfully Purchased"
-  message.style.color = "green";
-  localStorage.removeItem("cart");
-  span.innerHTML = "";
-  document.querySelector(".total-value").innerText = "0";
-})
+  console.log(message);
+  if(jsonRes['success'] === true) {
+    container.innerHTML = "";
+    message.innerText = "Successfully Purchased"
+    message.style.color = "green";
+    localStorage.removeItem("cart");
+    span.innerHTML = "";
+    document.querySelector(".total-value").innerText = "0";
+  } else {
+    message.innerText = "Something went wrong, please try again later."
+    message.style.color = "red";
+  }
+}
 
 

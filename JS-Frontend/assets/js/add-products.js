@@ -52,7 +52,7 @@ async function editProduct() {
     formData.append('token', localStorage.getItem("token"));
 
     const response = await fetch("/products/addNewProduct", {
-        method: "POST",
+        method: "PATCH",
         body: formData,
     })
 
