@@ -1,11 +1,16 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
 main {
     display: flex;
     justify-content: center;
 }
 
-.footer {
-    position: absolute;
+footer {
+    position: relative;
     bottom: 0;
+    width: 100%;
 }
 
 .info-container {

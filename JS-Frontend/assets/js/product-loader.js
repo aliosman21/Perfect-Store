@@ -1,3 +1,14 @@
+let x = localStorage.getItem("cart");
+if(x) {
+  let arrayOfItems = x.split(",");
+  var cart = new Set(arrayOfItems);
+  span.innerHTML = cart.size;
+}
+else {
+  var cart = new Set();
+  span.innerHTML = "";
+}
+
 (function () {
   getProducts();
   getCategories();
@@ -43,16 +54,7 @@ async function getProducts() {
   });
   let btns = document.getElementsByClassName("btn-product");
   let span = document.getElementById("span");
-  // console.log(afaf);
 
-  // afaf.prototype.forEach.call((ayhaga) => {
-  //   ayhaga.addEventListener("click", (e) => {
-  //     e.stopPropagation();
-  //     count += 1;
-  //     span.innerHTML = count;
-  //     console.log(count);
-  //   });
-  // });
   let count = 0;
   for (let i = 0; i < btns.length; i++) {
     btns[i].onclick = (e) => {

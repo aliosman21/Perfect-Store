@@ -1,3 +1,14 @@
+let x = localStorage.getItem("cart");
+if(x) {
+  let arrayOfItems = x.split(",");
+  var cart = new Set(arrayOfItems);
+  span.innerHTML = cart.size;
+}
+else {
+  var cart = new Set();
+  span.innerHTML = "";
+}
+
 (function () {
   getProducts();
 })();
@@ -42,15 +53,14 @@ async function getProducts() {
     productsContainer.appendChild(cardEl);
   });
 
-  let productsCart = new Set();
-
   let btns = document.getElementsByClassName("btn-card");
   let span = document.getElementById("span");
   for (let i = 0; i < btns.length; i++) {
     console.log(btns[i]);
     btns[i].onclick = (e) => {
-      productsCart.add(e.currentTarget.id);
-      span.innerHTML = productsCart.size;
+      cart.add(e.currentTarget.id);
+      span.innerHTML = cart.size;
+      localStorage.setItem("cart",  Array.from(cart));
     };
   }
 }

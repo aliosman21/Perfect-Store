@@ -9,9 +9,15 @@
 /* Helpers */
 async function retrieveProducts() {
   let x = localStorage.getItem("cart");
-  let arrayOfItems = x.split(",");
-  console.log(arrayOfItems);
-  var cart = new Set(arrayOfItems);
+  if(x) {
+    var arrayOfItems = x.split(",");
+    var cart = new Set(arrayOfItems);
+    span.innerHTML = cart.size;
+  }
+  else {
+    var cart = new Set();
+    span.innerHTML = "";
+  }
 
   const response = await fetch("/products/getById", {
     method: "POST",
@@ -92,6 +98,7 @@ async function retrieveProducts() {
         const targetRow = e.currentTarget.parentElement;
         const container = document.querySelector(".row-container");
         container.removeChild(targetRow);
+        span.innerHTML = cart.size;
         localStorage.setItem("cart",  Array.from(cart));
         getTotal();
       });
