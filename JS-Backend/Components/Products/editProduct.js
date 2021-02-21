@@ -1,8 +1,34 @@
 const router = require("express").Router();
 const productsSchema = require("./ProductModel");
 const connectionToDB = require("../DBConnector/ConnectionHandler");
+const multer = require("multer");
 
-router.patch("/", async (req, res) => {
+const storage = multer.diskStorage({
+   destination: function (req, file, cb) {
+      cb(null, "./uploads/");
+   },
+   filename: function (req, file, cb) {
+      cb(null, file.originalname);
+   },
+});
+
+const fileFilter = (req, file, cb) => {
+   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+      cb(null, true);
+   } else {
+      cb(null, false);
+   }
+};
+
+const upload = multer({
+   storage: storage,
+   limits: {
+      fileSize: 1024 * 1024 * 5,
+   },
+   fileFilter: fileFilter,
+});
+
+router.patch("/", upload.single("image"), async (req, res) => {
    connectionToDB.establishConnection();
    const productData = await productsSchema.findOne({ _id: req.body.id });
    let modifications = {};
