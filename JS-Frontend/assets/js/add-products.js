@@ -6,6 +6,8 @@ submitBtn.addEventListener("click", e => {
 });
 
 async function addProduct() {
+
+
     // const response = await fetch("/products/addNewProduct", {
     //     method: "POST",
     //     headers: {
@@ -22,7 +24,7 @@ async function addProduct() {
     // });
 
     const formData = new FormData();
-    formData.append('image', document.querySelector("#img").value);
+    formData.append('image', document.querySelector("#img").files[0]);
     formData.append('name', document.querySelector("#name").value);
     formData.append('quantity', document.querySelector("#quantity").value);
     formData.append('price', document.querySelector("#price").value);
