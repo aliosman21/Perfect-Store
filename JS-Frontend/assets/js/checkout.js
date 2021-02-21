@@ -107,4 +107,17 @@ async function retrieveProducts() {
 
 }
 
+const submitBtn = document.querySelector("#submitBtn");
+submitBtn.addEventListener("click", e => {
+  e.preventDefault();
+  const message = document.querySelector("#confirm-message");
+  const container = document.querySelector(".row-container");
+  container.innerHTML = "";
+  message.innerText = "Successfully Purchased"
+  message.style.color = "green";
+  localStorage.removeItem("cart");
+  span.innerHTML = "";
+  document.querySelector(".total-value").innerText = "0";
+})
+
 

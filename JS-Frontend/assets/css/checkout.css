@@ -1,6 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
+    
 }
 main {
     display: flex;
@@ -8,7 +9,7 @@ main {
 }
 
 footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
