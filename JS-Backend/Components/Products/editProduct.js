@@ -55,8 +55,9 @@ router.patch("/", upload.single("image"), async (req, res) => {
       } catch {
          console.log("no image");
       }
-
-      await productsSchema.findByIdAndUpdate(productData._id, { $set: modifications });
+      await productsSchema.findByIdAndUpdate(productData._id, {
+         $set: modifications,
+      });
 
       res.send({ success: true, message: "Product Updated" });
    } else {
