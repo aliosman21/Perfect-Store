@@ -34,8 +34,7 @@ router.post("/", upload.single("image"), async (req, res) => {
    connectionToDB.establishConnection();
    console.log(req);
    let decoded = jwt_decode(req.body.token);
-   console.log(decoded);
-   console.log(req.body);
+   //console.log(decoded);
    //console.log(req.body);
    if (decoded.isAdmin) {
       const product = new productsSchema({
@@ -45,12 +44,12 @@ router.post("/", upload.single("image"), async (req, res) => {
          price: req.body.price,
          image: "http://localhost:5000/" + req.file.path,
       });
-      console.log(product);
+      //console.log(product);
 
       product
          .save()
          .then((result) => {
-            console.log(result);
+            //console.log(result);
             res.status(200).json({
                success: true,
                message: "Created product successfully",
