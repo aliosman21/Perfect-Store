@@ -57,15 +57,17 @@ async function getProducts() {
     productsContainer.appendChild(cardEl);
   });
 
+  let productsCart = new Set();
+
   let afaf = document.getElementsByClassName("btn-card");
   let span = document.getElementById("span");
-  let count = 0;
   for (let i = 0; i < afaf.length; i++) {
     console.log(afaf[i]);
-    afaf[i].onclick = () => {
-      count += 1;
-      span.innerHTML = count;
-      console.log(count);
+    afaf[i].onclick = (e) => {
+      productsCart.add(e.target.id);
+      console.log(productsCart);
+      span.innerHTML = productsCart.size;
+      console.log(productsCart.size);
     };
   }
 }
